@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bengali-Hindi News Translator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Anek Bangla' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kurale&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="header">
+    <!-- <div class="header-logo">Logo</div> -->
+    <h1>Bengali-Hindi News Translator</h1>
+  </div>
+
+  <div class="container">
+    <div class="left-section">
+        <form action="/translate" method="POST">
+            <h2>Bengali News</h2>
+            <textarea name="bengali_text" placeholder="Paste Bengali news text here..."></textarea>
+          </form>          
+    </div>
+    <div class="right-section">
+      <div class="upload-box">
+  <h3>Upload Screenshot</h3>
+  <input type="file" id="fileInput" accept="image/*" style="display: none;" />
+  <button id="selectBtn">Select Screenshot</button>
+
+  <hr style="margin-top: 20px;" />
+  <h3 style="text-align: left;">Upload Preview</h3>
+  <div class="preview" id="previewBox" style="position: relative;">
+    <!-- Image and cross will appear here -->
+  </div>
+</div>
+
+<div class="translate-box">
+  <button id="submit">Translate</button>
+</div>
+
+<!-- Modal Background -->
+<div id="modalBackground">
+  <!-- Result Box (Modal) -->
+  <div class="result-box" id="resultBox">
+    <!-- Content will be populated by JavaScript -->
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
+
+  
