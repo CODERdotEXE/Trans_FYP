@@ -1,0 +1,377 @@
+body {
+    background-color: #262624;
+    color: #f0f0f0;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family: "Playfair Display", serif; */
+    font-family: "Outfit", sans-serif;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position:relative;
+    scrollbar-color: #4caf4f rgba(255, 166, 0, 0);
+  scrollbar-width:thin;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    border-radius: 30px;
+    background-color: #33332e;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    height: 65vh;
+    max-width: 80vw;
+  }
+
+  .left-section {
+    flex: 2;
+    margin-right: 30px;
+  }
+
+  .left-section h2 {
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 510px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    resize: none;
+    font-family: 'Anek Bangla';
+    font-size: 20px;
+    background-color: #1e1e1c;
+    color: #ffffff;
+    outline: none;
+  }
+
+  .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 30px;
+  
+  }
+
+  .upload-box, .translate-box {
+    background-color: #3a3a36;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .upload-box{
+      margin-top: 14%;
+      height: 80%;
+
+  }
+
+  .preview {
+height: 180px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 30px;
+background-color: #5c5c5960;
+overflow: hidden;
+}
+
+  .translate-box{
+      background-color:transparent;
+      /* margin-bottom: 30%; */
+  }
+
+  .upload-box h3 {
+    margin-bottom: 15px;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    /* font-family: "Playfair Display", serif; */
+    font-family: "Outfit", sans-serif;
+    font-style: normal;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+  #upload{
+      width: 50%;
+      font-size: 20px;
+
+  }
+  #submit{
+      padding: 20px;
+      width: 50%;
+      font-size: 24px;
+      font-weight: bold;
+
+  }
+
+  .header {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .header-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  .preview img {
+height: 100px; /* or whatever fixed height you prefer */
+width: auto;
+object-fit: contain;
+display: block;
+margin: 0 auto;
+}
+
+/* Modal Background */
+#modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 254, 254, 0.7);
+  backdrop-filter: blur(5px);  /* For background blur */
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  display: none; /* Initially hidden */
+}
+
+/* Show class for modal background */
+#modalBackground.show {
+  display: flex; /* This will center the result box */
+}
+
+/* Result Box */
+#resultBox {
+  width: 80vw;
+  height: 85vh;
+  overflow-y: auto; /* Make the modal scrollable */
+  background-color: #33332e;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.055);
+  padding: 25px 30px;
+  font-family: "Outfit", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  /* Remove any default display properties here */
+}
+
+#resultBox h2 {
+  /* margin-bottom: 15px; */
+  font-size: 25px;
+  color: #fffefe;
+  /* border-bottom: 1px solid #e0e0e0; */
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+#resultBox h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.result-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+  
+}
+
+.result-column {
+  margin-bottom: 20px;
+  width: 48%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.result-text {
+  height: 300px;
+  overflow:auto;
+  background-color: #413f3f;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-radius: 15px;
+  font-size: 20px;
+  white-space: pre-wrap;
+  color: white;
+  font-family: 'Anek Bangla', sans-serif;
+}
+
+/* Custom scrollbar for the modal */
+#resultBox::-webkit-scrollbar {
+  width: 8px;
+}
+
+#resultBox::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#resultBox::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+#resultBox::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 600px) {
+  #resultBox {
+    padding: 20px;
+    width: 90vw; /* Slightly wider on mobile */
+  }
+  
+  .result-column {
+    width: 100%;
+  }
+
+  .result-text {
+    font-size: 15px;
+  }
+}
+.translation-metadata {
+  margin-top: 30px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.metadata-left {
+  flex: 3;
+}
+
+.metadata-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.translation-metadata h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #000000;
+}
+
+.translation-metadata ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.translation-metadata li {
+  color: whitesmoke;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.translation-metadata strong {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.accuracy-graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circular-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring__background {
+  stroke: #d3d3d300;
+}
+
+.progress-ring__circle {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
+
+.accuracy-percentage {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.accuracy-label {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.remove-btn {
+position: absolute;
+top: 8px;
+right: 8px;
+border: none;
+width: 25px;
+height: 25px;
+font-size: 16px;
+cursor: pointer;
+font-weight: bold;
+background-color: transparent;
+padding: 0%;
+}
+.remove-btn:hover{
+  background-color: antiquewhite;
+  }
+
+  
